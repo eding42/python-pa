@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #from pydub import AudioSegment
 #from pydub.playback import play
 
@@ -6,7 +8,11 @@
 #sound = AudioSegment.from_file("mysound.wav", format="wav")
 #play(sound)
 
+
+
 import sox
+
+from playsound import playsound
 
 # create combiner
 cbn = sox.Combiner()
@@ -16,3 +22,4 @@ cbn.build(
     ['./bin/aachen.wav', './bin/aaberg.wav'], 'output.wav', 'concatenate'
 )
 
+playsound('output.wav')
