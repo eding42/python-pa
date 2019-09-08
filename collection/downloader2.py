@@ -4,7 +4,7 @@
 # Image finding errors can be remedied by retaking the screenshot, and not changing host system brightness or coloration settings until the operation is complete, lest a new screenshot be needed. 
 # Users should adjust the program according to their own use. 
 '''
------ v 2.0 -----
+----- v 2.1 -----
 
 made by Edward Ding
 
@@ -14,9 +14,9 @@ import pyautogui
 import time
 import random
 
-data = open('../data/bin.py','r')
+data = open('../data/data-20k.txt','r')
 
-result = eval(data.readline())
+#result = eval(data.readline())
 
 #Searches for the initial text entry box
 print("Searching for text entry box...\n")
@@ -35,9 +35,8 @@ namebox_center = pyautogui.center(second)
 print("The center of the title bar is {}\n" .format(namebox_center))
 
 
-for line in result:
-    line = random.choice(result)
-    print('Currently working with "{}"\n'.format(line))
+for line in data:
+    print('Currently working with {}\n'.format(line))
     #os.system("xdotool windowminimize $(xdotool getactivewindow)")
     print("Clicked on text entry box.")
     pyautogui.click(textbox_center.x,textbox_center.y, clicks=2, interval=0.1, button='left')
@@ -67,7 +66,7 @@ for line in result:
     pyautogui.click(wavlink_center.x,wavlink_center.y, clicks=
 1, button="left")
     print("Waiting for the download packet to be loaded")
-    pyautogui.PAUSE = 15
+    pyautogui.PAUSE = 10
 
     #searches for the save file
     #print("Searching for save file...\n")
@@ -84,7 +83,8 @@ for line in result:
     pyautogui.PAUSE = 1
     pyautogui.hotkey("enter")  
     pyautogui.PAUSE = 1  
-    pyautogui.click(943,943)
+    pyautogui.hotkey("enter")  
+    pyautogui.click(920,943)
     pyautogui.hotkey("enter")
 
     print("END of Download")
@@ -104,7 +104,7 @@ for line in result:
         time.sleep(1)
         print("Waiting for {} seconds...".format(x))
         x = x + 1
-        if x == 10:
+        if x == 8:
             break
     result.remove(line)
     

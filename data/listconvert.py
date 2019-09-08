@@ -1,6 +1,6 @@
 list = []
 
-file = open('bin.txt', 'r')
+file = open('20k.txt', 'r')
 
 result = file.readline()
 
@@ -16,8 +16,8 @@ for line in yeet:
 
 #list = file.read()
 
-for item in list:
-    output = open("data.txt", "a+")
+for item in file:
+    output = open("data-20k.txt", "a+")
     output.write(item)
-    output.write("\n")
-    print("Finished writing " + item)
+   # output.write("\n")
+    print("Finished writing {}" .format(item))
